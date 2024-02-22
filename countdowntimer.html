@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Countdown Timer</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+  }
+  #timer {
+    font-size: 48px;
+    margin-top: 50px;
+  }
+  button {
+    margin: 10px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+  }
+</style>
+</head>
+<body>
+  <h1>Countdown Timer</h1>
+  <div id="timer">00:00:00</div>
+  <button id="startButton">Start</button>
+  <button id="stopButton">Stop</button>
+  <button id="resetButton">Reset</button>
+
+<script>
+  let timerInterval;
+  let timeLeft;
+
+  function startTimer() {
+    if (!timeLeft) {
+      const hours = parseInt(prompt("Enter hours:")) || 0;
+      const minutes = parseInt(prompt("Enter minutes:")) || 0;
+      const seconds = parseInt(prompt("Enter seconds:")) || 0;
+      timeLeft = (hours * 3600) + (minutes * 60) + seconds;
+    }
+
+    timerInterval = setInterval(function() {
+      const hours = Math.floor(timeLeft / 3600);
+      const minutes = Math.floor((timeLeft % 3600) / 60);
+      const seconds = Math.floor(timeLeft % 60);
+
+      document.getElementById("timer").inner
